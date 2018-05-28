@@ -1,18 +1,9 @@
-function [ varargout ] = duplifile( varargin )
-% function: Short description
+function [ varargout ] = duplifile( FILE )
+% DUPLIFILE: Duplicates file
 %
-% Extended description
-disp('Fake-duplicating file')
-
-FILE = varargin{1};
-
-disp(FILE)
+% Duplicates file FNAME passed to ml-*-process under --inputs file_in:FNAME
 
 [PATHSTR,NAME,EXT] = fileparts(FILE);
-
-disp([PATHSTR,NAME,EXT])
-
-disp(['copyfile(' FILE ',' fullfile(PATHSTR,NAME) '_copy' EXT ')'])
-
+eval(['copyfile(''' FILE ''',''' fullfile(PATHSTR,NAME) '_copy' EXT ''');'])
 
 end  % function
